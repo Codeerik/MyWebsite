@@ -1,0 +1,44 @@
+﻿@import "../_Variables.scss";
+
+.dropdown-el {
+    margin-top: 1vh;
+    min-width: 100%;
+    position: center;
+    display: inline-block;
+    min-height: 2em;
+    max-height: 2em;
+    overflow: hidden;
+    top: .5em;
+    cursor: pointer;
+    white-space: nowrap;
+    outline: none;
+    border: .1em solid transparent;
+    border-radius: .5em;
+    background-color: #1e3f5a;
+    color: #FFFFFF;
+    transition: $timing all ease-in-out;
+
+    select {
+        text-align: center;
+    }
+  
+    label {
+        display: block;
+        height: 2em;
+        padding-left: 2em;
+        padding-right: 2em;
+        cursor: pointer;
+        position: relative;
+        transition: $timing color ease-in-out;
+    }
+
+    &.expanded {
+        border-radius: initial;
+        background-color: #1e3f5a;
+
+        &::after {
+            transform: rotate(-180deg);
+            top: .5em;
+        }
+    }
+}

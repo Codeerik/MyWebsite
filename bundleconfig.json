@@ -1,0 +1,21 @@
+[
+  {
+    "outputFileName": "wwwroot/js/Scripts.min.js",
+    "inputFiles": [
+      "wwwroot/js/Scripts/Home.js",
+      "wwwroot/js/Scripts/CV.js",
+      "wwwroot/js/Scripts/Account.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/Scripts.js",
+    "inputFiles": [
+      "wwwroot/js/Scripts/Home.js",
+      "wwwroot/js/Scripts/CV.js",
+      "wwwroot/js/Scripts/Account.js"
+    ],
+    "minify": {
+      "enabled": false
+    }
+  }
+]

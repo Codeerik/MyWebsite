@@ -1,0 +1,12 @@
+﻿@using ErikVanDelft.Models;
+
+<div style="height: 150px">
+
+    @await Html.PartialAsync("_NavBar")
+
+    <div id="LoginPartialView">
+        <!-- Login Modal -->
+        @await Html.PartialAsync("_Login", new LoginViewModel())
+    </div>
+</div>
+

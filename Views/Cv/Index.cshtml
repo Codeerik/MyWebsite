@@ -1,0 +1,42 @@
+﻿@using ErikVanDelft.Models;
+@model CvViewModel
+<!-- title in browser bar -->
+
+
+@{
+    ViewData["Title"] = "Curriculum Vitae";
+}
+
+<!-- title inside view -->
+<div class="container">
+    <div class="row">
+        <div class="a">
+            <h1 style="color:#1e3f5a; font: 22px OCR A Std;"> @ViewData["Title"]</h1>
+        </div>
+
+    </div>
+</div>
+
+<!--  -->
+<input id="CvGetActionUrl" type="hidden" value="@Url.Action("GetCvContent", "Cv" )" />
+
+@using (Html.BeginForm("Index", "Cv", FormMethod.Post))
+{
+    <!-- Textual Header of the Page -->
+    <div class="form">
+
+        <div class="row">
+            <div class="col-xl-2"></div>
+            <div class="col-xl-8">
+
+                <h5 style="text-align:center; color:#1e3f5a; font: 22px OCR A Std;"> Welkom bij mijn digitaal CV</h5>
+
+            </div>
+            <div class="col-xl-2"></div>
+        </div>
+
+        <!--  Partial view for all CV components  -->
+        @await  Html.PartialAsync("_CvInfo")
+
+    </div>
+}

@@ -1,0 +1,69 @@
+﻿@using System.Security.Claims
+@using Microsoft.AspNetCore.Identity
+
+
+<input type="hidden" id="LoginPartialViewUrl" value="@Url.Action("LoginView","Account")" />
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white box-shadow mb-3 navtop">
+
+    <div class="container">
+        <!-- Navbar button for routing to Home Page - also the initial Landing page -->
+        <a class="navbar-brand  @Html.IsSelected("Index", "Home")" asp-area="" asp-controller="Home" asp-action="Index">ERIK</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+            <ul class="navbar-nav flex-grow-1">
+
+                <!-- Navbar button for routing to Curriculum Vitae Page -->
+                <li class="nav-item">
+                    <a class="nav-link text-dark @Html.IsSelected("Index", "Cv")" asp-area="" asp-controller="Cv" asp-action="Index"> CV </a>
+                </li>
+
+                <!-- Navbar button for routing to Blog Page -->
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark @Html.IsSelected("Index", "Blog")" asp-area="" asp-controller="Blog" asp-action="Index"> BLOG </a>
+                </li>
+
+                <!-- Navbar button for routing to ContactForm Page -->
+                <li class="nav-item">
+                    <a class="nav-link text-dark @Html.IsSelected("Index", "Contact")" asp-area="" asp-controller="Contact" asp-action="Index"> CONTACT </a>
+                </li>
+
+
+
+
+            </ul>
+        </div>
+
+        @if (User.Identity.Name == null)
+        {
+            <!-- Login Button -->
+            <div style="padding: 35px; float: right;">
+                <button class="login-button" id="OpenLoginUserModal" type="button" data-toggle="modal" data-target="#LoginUserModal">
+                    Inloggen
+                </button>
+            </div>
+        }
+        else
+        {
+            <!-- Logout Button -->
+            <div style="padding: 35px; float: left;">
+                <button id="OpenLogoutUserModal" type="button" data-toggle="modal" data-target="#LogoutUserModal">
+                    Uitloggen @User.Identity.Name
+                </button>
+            </div>
+        }
+
+
+
+    </div>
+
+
+
+
+
+</nav>

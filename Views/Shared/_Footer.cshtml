@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "_Layout";
+}
+<div class="container">
+    <div class="row">
+
+        <div class="col-xl-11">
+            @DateTime.Now.Date.ToShortDateString()    &copy;ErikVanDelft
+        </div>
+
+
+        <div class="col-xl-1">
+            <a asp-area="" asp-controller="Home" asp-action="Privacy"> Privacy </a>
+        </div>
+
+    </div>
+</div>

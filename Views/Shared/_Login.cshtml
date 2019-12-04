@@ -1,0 +1,77 @@
+﻿@using ErikVanDelft.Models;
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Identity
+@model LoginViewModel
+<!-- Login User modal -->
+<div id="LoginUserModal" class="modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Log hier in met uw Gebruikersnaam & Wachtwoord.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post, new
+                {
+                    data_ajax = "true",
+                    data_ajax_method = "POST",
+                    data_ajax_success = "LoginResponse(\"#LoginUserStatus\", data);",
+                    data_ajax_failure = "LoginResponse(\"#LoginUserStatus\", data);"
+                }))
+                {
+                    <div class="row">
+                        <div class="col-xl-3">
+                            <label>
+                                @Html.LabelFor(m => m.UserName)
+                            </label>
+                        </div>
+                        <div class="col-xl-9">
+                            <input id="LoginUserUserName" class="form-input-field" asp-for="UserName" name="UserName" data-val="true" type="text">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-3">
+                            <label>
+                                @Html.LabelFor(m => m.Password)
+                            </label>
+                        </div>
+                        <div class="col-xl-9">
+                            <input id="LoginUserPassWord" class="form-input-field" asp-for="Password" name="Password" data-val="true" type="password">
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="row">
+                        <div class="col-xl-3">* Velden zijn verplicht</div>
+                        <div class="col-xl-2">
+                            <button id="LoginUserSubmit" class="butpad" type="submit" value="Login">
+                                inloggen
+                            </button>
+                        </div>
+                        <!-- Register button & -->
+                        <div class="col-xl-2">
+                            <button id="OpenRegisterUserModal" class="butpad" data-toggle="modal" data-target="#RegisterUserModal">
+                                Nieuw account
+                            </button>
+                        </div>
+                        <!--forgot account button -->
+                        <div class="col-xl-2">
+                            <button id="OpenForgotAccount" class="butpad" data-toggle="modal" data-target="#ForgotAccountModal" disabled>
+                                Account herstellen
+                            </button>
+                        </div>
+                        <!--   status result message  -->
+                        <div class="col-xl-3">
+                            <div id="LoginUserStatus"> </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

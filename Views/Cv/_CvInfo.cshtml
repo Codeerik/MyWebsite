@@ -1,0 +1,92 @@
+﻿@using ErikVanDelft.Models;
+@model CvViewModel
+
+<!-- Select a Company -->
+<div class="row">
+    <div class="col-xl-3"></div>
+    <div class="col-xl-6">
+        <!-- Functie selectie -->
+        <select id="SelectCvFunction" class="dropdown-el">
+            @{
+                <option value="">Selecteer hier een Functie..</option>
+                for (int i = 0; i < Model.CvList.Count; i++)
+                {
+                    <option value="@Model.CvList[i].FunctieID">@Model.CvList[i].Functie </option>
+                }
+            }
+        </select>
+    </div>
+    <div class="col-xl-3"></div>
+</div>
+<div class="row"></div>
+
+@{
+    if (Model.CvList != null)
+    {
+
+        <div class="container">
+            <!-- Filled textbox dependent on chosen company -->
+            <div class="row row-pointer">
+                <div class="col-xl-3 specific"> Bedrijf </div>
+                <div class="col-xl-6">
+                    <div id="CvCompany" type="text">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-pointer">
+                <div class="col-xl-3 specific"> Startdatum </div>
+                <div class="col-xl-6">
+                    <div>
+                        <div id="CvStartDate" type="date">
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-pointer">
+                <div class="col-xl-3 specific"> Einddatum </div>
+                <div class="col-xl-6">
+                    <div>
+                        <div id="CvEndDate" type="date">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-pointer">
+                <div class="col-xl-3 specific"> Bedrijfswebsite </div>
+                <div class="col-xl-6">
+                    <div>
+                        <a href="#">
+                            <div id="CvWebsite" type="url" >
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-pointer">
+                <div class="col-xl-3 specific"> Functie inhoud </div>
+                <div class="col-xl-6">
+                    <div>
+                        <div id="CvFunctionContent" type="text" style="text-align: justify;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="h3"> Selecteer een functie en lees meer over mijn ervaringen binnen deze functie. </div>
+    }
+}

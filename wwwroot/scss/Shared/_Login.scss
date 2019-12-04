@@ -1,0 +1,26 @@
+﻿@import "../_Variables.scss";
+.LoginModal {
+    .row {
+        margin-bottom: 1.5em;
+    }
+
+    button {
+        text-align: center;
+
+    }
+}
+
+.form-input-field {
+    width: 95%;
+}
+
+.butpad {
+    padding: 2px;
+    display: inline;
+    height: 60px;
+    width: 90px;
+    background-color: $color;
+    color: white;
+    border: .1em solid transparent;
+    border-radius: 0.25em;
+}

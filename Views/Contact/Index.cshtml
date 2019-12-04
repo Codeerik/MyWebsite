@@ -1,0 +1,82 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model ErikVanDelft.Models.ContactFormModel
+<!-- navigation bar onderstreping: html helper 'isSelected' zie navbar. -->
+
+    <h1 style="color:#1e3f5a; font: 22px OCR A Std;">
+        Een goed idee, nieuwsgierig of iets dat je graag wilt bespreken?
+        <br>
+        <br>
+        Neem gerust contact met mij op.
+    </h1>
+
+<!--<form asp-action="Index" asp-controller="Contact" method="post" data-ajax="true" data-ajax-method="Post">   -- is synoniem voor Html.Beginform  -->
+
+
+@using (Html.BeginForm("Index", "Contact", FormMethod.Post, new
+{
+     // Data ajax aan; redirect gaat dan uit --> dmv JS met data ajac redirecten etc.
+    //data_ajax = "true",
+    //data_ajax_method = "POST"
+    //data_ajax_success = "LoginResponse(\"#LoginUserStatus\", data);",
+    //data_ajax_failure = "LoginResponse(\"#LoginUserStatus\", data);"
+
+}))
+{
+
+
+
+    <!--Name field-->
+
+    <div class="row general-style">
+        <div class="col-xl-3">
+            <label asp-for="Name"> Naam: </label>
+        </div>
+        <div class="col-xl-8">
+            <input type="text" asp-for="Name" required placeholder="Bruce Wayne" class="textbox-style" />
+        </div>
+    </div>
+
+    <!-- Email field  -->
+    <div class="row general-style">
+        <div class="col-xl-3">
+            <label asp-for="Email"> E-mail: </label>
+        </div>
+        <div class="col-xl-8">
+            <input type="text" asp-for="Email" required placeholder="brucewayne@batman.nl" class="textbox-style" />
+        </div>
+    </div>
+
+    <!-- Telephone number field  -->
+    <div class="row general-style">
+        <div class="col-xl-3">
+            <label asp-for="Name"> Tel.Nr: </label>
+        </div>
+        <div class="col-xl-8">
+            <input type="text" asp-for="Name" placeholder="06 123 456 78" class="textbox-style" />
+        </div>
+    </div>
+
+    <!-- Message field  -->
+    <div class="row general-style">
+        <div class="col-xl-3">
+            <label asp-for="Message"> Bericht: </label>
+        </div>
+        <div class="col-xl-8">
+            <textarea asp-for="Message" required placeholder="Hier is ruimte gereserveerd voor uw bericht..." class="textbox-style textbox-grow">
+                </textarea>
+        </div>
+    </div>
+
+    <!-- Submit button -->
+    <div class="row general-style">
+        <div class="col-xl-3"></div>
+        <div class="col-xl-8">
+            <input type="submit" value="Verzenden" class="send-contactform" />
+        </div>
+    </div>
+
+}
+
+
+
+

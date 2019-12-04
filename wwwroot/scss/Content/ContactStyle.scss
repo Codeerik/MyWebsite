@@ -1,0 +1,32 @@
+﻿@import "../_Variables.scss";
+
+
+.textbox-style {
+    width: 100%;
+    outline: none;
+}
+.textbox-style:focus {
+    border-color: $color;
+    border-radius: 0.25em;
+    background-color: $color;
+    color: #FFFFFF;
+    transition: $timing all ease-in-out;
+}
+.textbox-grow {
+    min-height: 100px;
+    transition: $timing2 all ease-in-out;
+}
+
+.general-style {
+    margin-top: 1.5em;
+}
+
+.send-contactform {
+    border-radius: 0.25em;
+    background-color: $color;
+    border-width: 0.5px;
+    border: .1em solid transparent;
+    color: white;
+    width: 30%;
+    float: right;
+}
